@@ -1,0 +1,28 @@
+{
+  access_token: 'mock-amadeus-access-token',
+  token_type: 'Bearer',
+  expires_in: 1799
+}
+{
+  access_token: 'mock-amadeus-access-token',
+  token_type: 'Bearer',
+  expires_in: 1799
+}
+{
+  meta: { count: 1 },
+  data: [
+    {
+      name: 'MUNICH INTERNATIONAL',
+      iataCode: 'MUC',
+      subType: 'AIRPORT',
+      address: [Object]
+    }
+  ]
+}
+1
+{
+  name: 'MUNICH INTERNATIONAL',
+  iataCode: 'MUC',
+  subType: 'AIRPORT',
+  address: { cityName: 'MUNICH', countryCode: 'DE' }
+}

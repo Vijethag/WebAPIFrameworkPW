@@ -1,0 +1,14 @@
+Get User Response ID {
+  type: 'array',
+  items: {
+    type: 'object',
+    properties: {
+      id: [Object],
+      name: [Object],
+      email: [Object],
+      gender: [Object],
+      status: [Object]
+    },
+    required: [ 'id', 'name', 'email', 'gender' ]
+  }
+}

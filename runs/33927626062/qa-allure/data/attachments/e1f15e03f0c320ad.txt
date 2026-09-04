@@ -1,0 +1,9 @@
+{
+  id: 8603600,
+  name: 'Anika',
+  email: 'automation_1788563078218@open.com',
+  gender: 'female',
+  status: 'active'
+}
+Created
+201
