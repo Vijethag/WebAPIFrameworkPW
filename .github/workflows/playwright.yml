@@ -3,22 +3,22 @@ name: Playwright Tests
 on:
   # schedule:
   #   - cron: "30 21 * * 1-4" # Mon-Fri 8PM IST
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  # push:
+  #   branches: [main]
+  # pull_request:
+  #   branches: [main]
   workflow_dispatch:
-  # manual trigger button in GitHub UI
-  # inputs:
-  #   environment:
-  #     description: "Select environment"
-  #     required: true
-  #     default: "QA"
-  #     type: choice
-  #     options:
-  #       - QA
-  #       - stage
-  #       - dev
+  manual trigger button in GitHub UI
+  inputs:
+    environment:
+      description: "Select environment"
+      required: true
+      default: "QA"
+      type: choice
+      options:
+        - QA
+        - stage
+        - dev
 
 jobs:
   test:
