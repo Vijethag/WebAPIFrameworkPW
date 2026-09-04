@@ -8,23 +8,22 @@ on:
   # pull_request:
   #   branches: [main]
   workflow_dispatch:
-  # manual trigger button in GitHub UI
-  inputs:
-    environment:
-      description: "Select environment"
-      required: true
-      default: "QA"
-      type: choice
-      options:
-        - QA
-        - stage
-        - dev
+    inputs:
+      environment:
+        description: "Select environment"
+        required: true
+        default: "QA"
+        type: choice
+        options:
+          - QA
+          - stage
+          - dev
 
 jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # environment: ${{ github.event.inputs.environment || 'QA' }}
+    environment: ${{ github.event.inputs.environment || 'QA' }}
 
     steps:
       - name: Checkout code
@@ -38,7 +37,7 @@ jobs:
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v6
+        uses: actions/cache@v7
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ hashFiles('package-lock.json') }}
@@ -72,12 +71,12 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: playwright-html-report-${{ github.run_id }}
-          path: reports/htmlreport/
+          path: reports/html-report/
           retention-days: 30
 
       - name: Upload Allure Results
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: allure-results-${{ github.run_id }}
           path: allure-results/
