@@ -30,7 +30,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ["list"],
-    ["html",{outputFolder:"reports/htmlreport",open:"never"}],
+    ["html",{outputFolder:"reports/html-report",open:"never"}],
     ["allure-playwright",{
       outputFolder:"allure-results",
       suiteTitle:true
