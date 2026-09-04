@@ -46,7 +46,7 @@ export let test = baseTest.extend<pageFixture>({
     },
     // Test Data Fixture Approach
     testData:async({},use)=>{
-        let testData = CsvUtil.readCSV('data/logindata.csv');
+        let testData = CsvUtil.readCSV('src/data/logindata.csv');
         await use(testData);
     }
 });

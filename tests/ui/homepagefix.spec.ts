@@ -1,5 +1,5 @@
 
-import {expect,test} from '../src/fixtures/pagefixtures';
+import {expect,test} from '../../src/fixtures/pagefixtures';
 
 
 
@@ -18,7 +18,7 @@ test('home page title test',async({homePage})=>{
 test(`Is Logout link present`,async({homePage})=>{
     const actualPageTitle = await homePage.isLogoutLinkExist();
     console.log('login page title',actualPageTitle);
-    expect(homePage.isLogoutLinkExist()).toBeTruthy();
+    expect(await homePage.isLogoutLinkExist()).toBeTruthy();
 });
 
 

@@ -52,7 +52,7 @@ export class ApiHelper{
     // PATCH
 
     async patch(endPoint:string,reqBody:object,headers?:Record<string,string>){
-        let response = await this.request.put(
+        let response = await this.request.patch(
             `${this.baseURL}${endPoint}`,{
                 headers:headers,
                 data:reqBody}

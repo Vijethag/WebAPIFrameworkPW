@@ -1,8 +1,7 @@
 
 import {expect,request,test} from '@playwright/test';
-import { userInfo } from 'os';
 
-let AUTH_TOKEN = {Authorization:'Bearer b59bb164bf45856c9d686bc1b380b12a81c4efa3c7a7ce6f76b21d056dc098b6'};
+let AUTH_TOKEN = {Authorization:`Bearer ${process.env.API_TOKEN}`};
 
 test('GET Users',async({request})=>{
    let response =  await request.get('https://gorest.co.in/public/v2/users',{
@@ -44,7 +43,7 @@ test('GET Users',async({request})=>{
 // get the same user with the same userId=123 - GET - 200
 
 
-test.skip('create a user test',async({request})=>{
+test('create a user test',async({request})=>{
 
     let userData = {
             "name": "Anika",
@@ -70,51 +69,69 @@ test.skip('create a user test',async({request})=>{
      console.log(response.status());
 
      expect(response.status()).toBe(201);
-     expect(response.statusText()).toBe("CREATED");
+     expect(response.statusText()).toBe("Created");
+     expect(jsonBody.name).toBe(userData.name);
+     expect(jsonBody.email).toBe(userData.email);
  });
 
  test('Update a user test',async({request})=>{
 
-    let userData = {
+    let createData = {
             "name": "Anika",
             "email": `automation_${Date.now()}@open.com`,
+            "gender": "female",
+            "status": "active"
+    };
+
+    let createResponse = await request.post('https://gorest.co.in/public/v2/users',{
+         headers:AUTH_TOKEN,
+         data:createData
+     });
+     expect(createResponse.status()).toBe(201);
+     let createdUser = await createResponse.json();
+
+    let userData = {
+            "name": "Anika Updated",
+            "email": createData.email,
             "gender": "female",
             "status": "inactive"
     };
 
-    let response =  await request.put('https://gorest.co.in/public/v2/users/8601018',{
+    let response =  await request.put(`https://gorest.co.in/public/v2/users/${createdUser.id}`,{
          headers:AUTH_TOKEN,
          data:userData
      });
  
-     // console.log(response);
-     // JSON Object to JSON : Serialization Marshelling
-     // PlayWright - Autoserialization
      let jsonBody = await response.json();
      console.log(jsonBody);
- 
-     // expect(response.status).toBe(200);
-     // ;
      console.log(response.statusText());
      console.log(response.status());
+     expect(response.status()).toBe(200);
+     expect(jsonBody.name).toBe(userData.name);
+     expect(jsonBody.status).toBe(userData.status);
  });
 
  test('Delete a user test',async({request})=>{
 
-    let userData = {
+    let createData = {
             "name": "Anika",
             "email": `automation_${Date.now()}@open.com`,
             "gender": "female",
             "status": "inactive"
     };
 
-    let response =  await request.delete('https://gorest.co.in/public/v2/users/8601019',{
+    let createResponse = await request.post('https://gorest.co.in/public/v2/users',{
          headers:AUTH_TOKEN,
-         data:userData
+         data:createData
+     });
+     expect(createResponse.status()).toBe(201);
+     let createdUser = await createResponse.json();
+
+    let response =  await request.delete(`https://gorest.co.in/public/v2/users/${createdUser.id}`,{
+         headers:AUTH_TOKEN
      });
 
-     // expect(response.status).toBe(200);
-     // ;
      console.log(response.statusText()); // No Content
      console.log(response.status()); // 204
+     expect(response.status()).toBe(204);
  });

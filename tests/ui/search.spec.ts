@@ -1,5 +1,5 @@
-import {expect,test} from '../src/fixtures/pagefixtures';
-import { CsvUtil } from '../src/utils/CsvUtils';
+import {expect,test} from '../../src/fixtures/pagefixtures';
+import { CsvUtil } from '../../src/utils/CsvUtils';
 
 
 
@@ -10,7 +10,7 @@ test.beforeEach(async ({loginPage})=>{
 })
 
 //DO_2:without fixtures,parallel mode,read csv data directly and loop the test method
-let productData = CsvUtil.readCSV('data/product.csv');
+let productData = CsvUtil.readCSV('src/data/product.csv');
 
 for(let data of productData){
 
@@ -24,13 +24,14 @@ for(let data of productData){
 
 
 for(let data of productData){
+    if (!data.productName || data.productName === 'null') {
+        continue;
+    }
 
-   
-test.skip(`verify proct results - ${data.productName}`,async({homePage,searchPage,page})=>{
-    await homePage.performSearch(data.searchKey);
-    await searchPage.selectProduct(data.productName);
-    expect(await page.title()).toBe(data.productName);
-
-})
+    test(`verify product results - ${data.productName}`,async({homePage,searchPage,page})=>{
+        await homePage.performSearch(data.searchKey);
+        await searchPage.selectProduct(data.productName);
+        expect(await page.title()).toBe(data.productName);
+    })
 }
 

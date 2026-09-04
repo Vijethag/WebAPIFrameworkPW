@@ -17,7 +17,7 @@ export class LoginPage extends BasePage{
         this.password =  page.getByRole('textbox',{name:'Password'});
         this.loginButton =  page.getByRole('button',{name:'Login'});
         this.forgottenPassword =  page.getByRole('link',{name:'Forgotten Password'}).first();
-        this.error = page.getByText('Warning: No match for E-Mail Address and/or Password.', { exact: true });
+        this.error = page.locator('.alert-danger').filter({ hasText: 'Warning:' });
     }
 
     // public page actions(methods)/behavior

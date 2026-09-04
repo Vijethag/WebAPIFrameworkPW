@@ -1,8 +1,8 @@
 
-import {test,expect} from '../src/fixtures/pagefixtures';
-import { ExcelUtil } from '../src/utils/ExcelUtil';
-import { JsonUtil } from '../src/utils/JsonUtil';
-import { CsvUtil } from '../src/utils/CsvUtils';
+import {test,expect} from '../../src/fixtures/pagefixtures';
+import { ExcelUtil } from '../../src/utils/ExcelUtil';
+import { JsonUtil } from '../../src/utils/JsonUtil';
+import { CsvUtil } from '../../src/utils/CsvUtils';
 
 test.beforeEach('',async({loginPage})=>{
 
@@ -36,13 +36,9 @@ test('Invalid login test with data driven', async ({loginPage,testData})=>{
 });
 
 //DO_2:without fixtures,parallel mode,read csv data directly and loop the test method
-let testData = CsvUtil.readCSV('data/logindata.csv');
-// Excel File is not in local to work 
-// XLSX format
-// maintance - excel will be corrupted
-// MS Excel - office latest
+let testData = CsvUtil.readCSV('src/data/logindata.csv');
 for(let data of testData){
-test(`No Fixture Invalid login test with data driven n ${data.username} `, async ({loginPage})=>{
+test(`CSV Invalid login test with data driven ${data.username}`, async ({loginPage})=>{
    
          await loginPage.doLogoin(data.username,data.password);
          await loginPage.isInvaliLoginDisplayed();
@@ -53,13 +49,9 @@ test(`No Fixture Invalid login test with data driven n ${data.username} `, async
 
 
 //DO_2:without fixtures,parallel mode,read csv data directly and loop the test method
-let testDataJson = JsonUtil.readJson('data/login.json');
-// Excel File is not in local to work 
-// XLSX format
-// maintance - excel will be corrupted
-// MS Excel - office latest
+let testDataJson = JsonUtil.readJson('src/data/login.json');
 for(let data of testDataJson){
-test(`No Fixture Invalid login test with data driven n ${data.username} `, async ({loginPage})=>{
+test(`JSON Invalid login test with data driven ${data.username}`, async ({loginPage})=>{
    
          await loginPage.doLogoin(data.username,data.password);
          await loginPage.isInvaliLoginDisplayed();
@@ -70,13 +62,9 @@ test(`No Fixture Invalid login test with data driven n ${data.username} `, async
 
 
 //DO_2:without fixtures,parallel mode,read csv data directly and loop the test method
-let testDataXlsx = ExcelUtil.readExcel('data/logindata.csv','login');
-// Excel File is not in local to work 
-// XLSX format
-// maintance - excel will be corrupted
-// MS Excel - office latest
+let testDataXlsx = ExcelUtil.readExcel('src/data/logindata.xlsx','login');
 for(let data of testDataXlsx){
-test.skip(`No Fixture Invalid login test with data driven n ${data.username} `, async ({loginPage})=>{
+test(`Excel Invalid login test with data driven ${data.username}`, async ({loginPage})=>{
    
          await loginPage.doLogoin(data.username,data.password);
          await loginPage.isInvaliLoginDisplayed();

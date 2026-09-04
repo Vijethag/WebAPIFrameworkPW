@@ -23,8 +23,9 @@ export class HomePage extends BasePage{
 
     async performSearch(searchText:string):Promise<void>{
         console.log(`Search key is ${searchText}`);
-        this.searchFiled.fill(searchText);
-        this.searchIcon.click();
+        await this.searchFiled.fill(searchText);
+        await this.searchIcon.click();
+        await this.page.waitForLoadState('domcontentloaded');
     }
 
 }

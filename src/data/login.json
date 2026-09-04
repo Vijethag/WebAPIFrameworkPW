@@ -5,10 +5,10 @@
 },
 {
     "username":"aing@test.com",
-    "password":""
+    "password":"WrongPass1"
 },
 {
-    "username":"",
+    "username":"nouser@test.com",
     "password":"Test@1234"
 }
 ]

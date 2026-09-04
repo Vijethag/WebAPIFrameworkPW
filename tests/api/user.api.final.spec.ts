@@ -62,7 +62,7 @@ test('DELETE Request - 1',async({apiHelper})=>{
 });
 
 
-test.skip('PATCH Request - 1',async({apiHelper})=>{
+test('PATCH Request - 1',async({apiHelper})=>{
     let userResponse = await createUser(apiHelper);
 
     let userUpdatedData = {

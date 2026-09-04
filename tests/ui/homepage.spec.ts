@@ -1,7 +1,7 @@
 
 import {expect,test} from '@playwright/test';
-import { LoginPage } from "../src/pages/LoginPage";
-import { HomePage } from "../src/pages/HomePage";
+import { LoginPage } from "../../src/pages/LoginPage";
+import { HomePage } from "../../src/pages/HomePage";
 
 let loginPage:LoginPage;
 let homePage:HomePage;
@@ -22,7 +22,7 @@ test('home page title test',async()=>{
 test(`Is Logout link present`,async()=>{
     const actualPageTitle = await homePage.isLogoutLinkExist();
     console.log('login page title',actualPageTitle);
-    expect(homePage.isLogoutLinkExist()).toBeTruthy();
+    expect(await homePage.isLogoutLinkExist()).toBeTruthy();
 });
 
 
