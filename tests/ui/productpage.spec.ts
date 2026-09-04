@@ -6,7 +6,7 @@ test.beforeEach(async ({loginPage})=>{
 })
 
 
-    test(`verify product images data`,async({homePage,searchPage,productInfoPage,page})=>{
+    test(`@regression verify product images data`,async({homePage,searchPage,productInfoPage,page})=>{
         await homePage.performSearch('macbook');
         await page.waitForTimeout(5000);
         await searchPage.selectProduct('MacBook Pro');
@@ -16,7 +16,7 @@ test.beforeEach(async ({loginPage})=>{
     })
 
     // Usinh Data Dtrivem pimpleemt
-    test(`verify product Information/Data`,async({homePage,searchPage,productInfoPage,page})=>{
+    test(`@regression verify product Information/Data`,async({homePage,searchPage,productInfoPage,page})=>{
         await homePage.performSearch('macbook');
         await page.waitForTimeout(5000);
         await searchPage.selectProduct('MacBook Pro');
@@ -31,7 +31,7 @@ test.beforeEach(async ({loginPage})=>{
     
     })
 
-    test(`Is Company Logo Visisble on product page`,async({homePage,searchPage,productInfoPage,page,basePage})=>{
+    test(`@smoke Is Company Logo Visisble on product page`,async({homePage,searchPage,productInfoPage,page,basePage})=>{
         // await homePage.performSearch('macbook');
         // await page.waitForTimeout(5000);
         // await searchPage.selectProduct('MacBook Pro');
@@ -40,7 +40,7 @@ test.beforeEach(async ({loginPage})=>{
     
     })
 
-    test(`footers count on product page`,async({basePage,productInfoPage})=>{
+    test(`@smoke footers count on product page`,async({basePage,productInfoPage})=>{
         // await homePage.performSearch('macbook');
         // await page.waitForTimeout(5000);
         // await searchPage.selectProduct('MacBook Pro');

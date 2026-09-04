@@ -5,7 +5,7 @@ const TOKEN = process.env.API_TOKEN;
 let AUTH_HEADER = {Authorization : `Bearer ${TOKEN}`}
 let userID: number;
 
-test.describe.serial('running end to end go rest CRUD API test',()=>{
+test.describe.serial('@smoke running end to end go rest CRUD API test',()=>{
     test('Get Request',async({apiHelper})=>{
         let response = await apiHelper.get('/public/v2/users',AUTH_HEADER);
         expect(response.status).toBe(200);

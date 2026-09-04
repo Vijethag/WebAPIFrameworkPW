@@ -6,7 +6,7 @@ import {test,expect} from '@playwright/test'
  * 
  */
 
-test('intercept and log the request',async({page})=>{
+test('@smoke intercept and log the request',async({page})=>{
     await page.route('**/*',async(route)=>{
         console.log(route.request().method(),route.request().url());
         await route.continue();
@@ -26,7 +26,7 @@ test('intercept and log the request',async({page})=>{
 // generate test data 
 // You are working in a company and you have to automate the hardware
 
-test('Mock search data api',async({page})=>{
+test('@regression Mock search data api',async({page})=>{
 
   //  Instead of allowing the browser to call the real backend API, 
   // Playwright intercepts that API request and returns your fake response

@@ -14,7 +14,7 @@ let productData = CsvUtil.readCSV('src/data/product.csv');
 
 for(let data of productData){
 
-    test(`verify search with product - ${data.searchKey} - ${data.productName}`,async({homePage,searchPage,page})=>{
+    test(`@smoke @regression verify search with product - ${data.searchKey} - ${data.productName}`,async({homePage,searchPage,page})=>{
         await homePage.performSearch(data.searchKey);
         await page.waitForTimeout(5000);
         expect(await searchPage.getProductResultsCount()).toBe(Number(data.resultCount));
@@ -28,7 +28,7 @@ for(let data of productData){
         continue;
     }
 
-    test(`verify product results - ${data.productName}`,async({homePage,searchPage,page})=>{
+    test(`@smoke @regression verify product results - ${data.productName}`,async({homePage,searchPage,page})=>{
         await homePage.performSearch(data.searchKey);
         await searchPage.selectProduct(data.productName);
         expect(await page.title()).toBe(data.productName);
