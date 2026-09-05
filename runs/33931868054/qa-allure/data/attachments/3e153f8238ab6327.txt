@@ -1,0 +1,3 @@
+user credentials testtest1@abc.com
+user credentials invaliduser123@gmail.com
+user credentials test12312@abc.com

@@ -1,0 +1,3 @@
+user credentials automationtest123@gmail.com
+Search key is macbook
+actualProductInfo [object Map]

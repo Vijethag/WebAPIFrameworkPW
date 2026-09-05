@@ -1,0 +1,30 @@
+Create User Response {
+  status: 201,
+  body: {
+    id: 8603679,
+    name: 'schema_test',
+    email: 'automation_1788567160011@open.com',
+    gender: 'male',
+    status: 'active'
+  }
+}
+Create User Response ID {
+  status: 201,
+  body: {
+    id: 8603679,
+    name: 'schema_test',
+    email: 'automation_1788567160011@open.com',
+    gender: 'male',
+    status: 'active'
+  }
+}
+Get User Response ID {
+  status: 200,
+  body: {
+    id: 8603679,
+    name: 'schema_test',
+    email: 'automation_1788567160011@open.com',
+    gender: 'male',
+    status: 'active'
+  }
+}

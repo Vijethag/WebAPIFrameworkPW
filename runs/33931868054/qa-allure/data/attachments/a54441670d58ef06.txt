@@ -1,0 +1,74 @@
+[
+  {
+    id: 8603603,
+    name: 'schema_test',
+    email: 'automation_1788563080195@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8603601,
+    name: 'Anika Updated',
+    email: 'automation_1788563078695@open.com',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8603600,
+    name: 'Anika',
+    email: 'automation_1788563078218@open.com',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8603572,
+    name: 'Mandakini Talwar',
+    email: 'mandakini_talwar@medhurst.example',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8603571,
+    name: 'Ekalavya Gowda',
+    email: 'ekalavya_gowda@bartoletti.test',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8603570,
+    name: 'Fr. Rajan Adiga',
+    email: 'rajan_adiga_fr@okon.test',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8603569,
+    name: 'Uma Somayaji III',
+    email: 'uma_somayaji_iii@marks.example',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8603568,
+    name: 'Dr. Agnimitra Mehra',
+    email: 'dr_agnimitra_mehra@kertzmann.example',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8603567,
+    name: 'Gov. Vedang Mahajan',
+    email: 'mahajan_vedang_gov@hermann-steuber.test',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8603566,
+    name: 'Rep. Chaten Deshpande',
+    email: 'chaten_rep_deshpande@reilly.test',
+    gender: 'female',
+    status: 'inactive'
+  }
+]
+OK
+200
